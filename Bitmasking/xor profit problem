@@ -1,0 +1,23 @@
+//Given xand y, maximum of value of a XOR b where x <= a <= b <= y
+
+#include<iostream>
+using namespace std;
+
+int main() {
+    int x,y;
+    cin>>x>>y;
+    int xorxy=x^y;
+    //find msb of this xor
+    int msb=0;
+    while (xorxy!=0){
+        msb++;
+        xorxy=xorxy>>1;
+    }
+    int maxval=0,two=1;
+    for (int i=0; i<msb; i++){
+        maxval=maxval+two;
+        two=two<<1;
+    }
+    cout<<maxval;
+    return 0;
+}
