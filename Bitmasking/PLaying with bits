@@ -1,0 +1,33 @@
+/*
+count number of set bits between two numbers a and b, both inclusive
+*/
+
+#include<iostream>
+using namespace std;
+
+int cntset(int n){
+    int cnt=0;
+    while(n!=0){
+        if ((n&1)==1){
+            cnt++;
+        }
+        n=n>>1;
+    }
+    return cnt;
+}
+
+int main() {
+    int Q;
+    cin>>Q;
+    while(Q){
+        int a,b;
+        cin>>a>>b;
+        int sum=0;
+        for (int i=a; i<=b;i++){
+            sum+=cntset(i);
+        }
+        cout<<sum<<endl;
+        Q--;
+    }
+	return 0;
+}
