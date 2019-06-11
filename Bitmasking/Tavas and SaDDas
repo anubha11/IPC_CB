@@ -1,0 +1,22 @@
+//Tavas and SaDDas, Codeforces 535-B
+
+#include <iostream>
+#include<cstring>
+using namespace std;
+#define ll long long;
+int main() {
+    char a[20];
+    cin>>a;
+    int len=strlen(a);
+    ll ans=0;
+    ans=(1<<len)-2; //counts of numbers with length=len-1
+    // check the number for presence of the 7 at any digit 
+    //and increase the count of ans
+    for(int i=len-1,pos=0;i>=0;i--,pos++){  
+        if (a[i]==7){
+            ans+=(1<<pos);
+        }
+    }
+    ans++; //count of the given number
+    return 0;
+}
