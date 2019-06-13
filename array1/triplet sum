@@ -1,0 +1,40 @@
+//find triplet pairs whose sum equal to the target
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+void sumtwo(int arr[],int n,int index,int target){
+    
+    int i=index+1;
+    int j=n-1;
+    while(i<j){
+        int sum=arr[i]+arr[j];
+        if (target==sum){
+            cout<<arr[index]<<", "<<arr[i]<<" and "<<arr[j]<<endl;
+        }
+		if(target<sum){
+            j--;
+        }else{
+            i++;
+        }
+    }
+    return ;
+}
+
+int main() {
+    int n,triplet,k;
+    cin>>n;
+    int arr[n];
+    for(k=0; k<n;k++){
+        cin>>arr[k];
+    }
+    cin>>triplet;
+    sort(arr,arr+n);
+	for(k=0; k<n;k++){
+		sumtwo(arr,n,k,triplet-arr[k]);
+	}
+
+
+    return 0;
+}
