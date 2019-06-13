@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+void Sumarr(int a[], int b[], int n, int m) 
+{ 
+    int sum[n]; 
+  
+    int i = n - 1, j = m - 1, k = n - 1; 
+  
+    int carry = 0, s = 0; 
+    while (j >= 0) { 
+        s = a[i] + b[j] + carry; 
+        sum[k] = (s % 10); 
+        carry = s / 10; 
+        k--; 
+        i--; 
+        j--; 
+    } 
+    while (i >= 0) { 
+        s = a[i] + carry; 
+        sum[k] = (s % 10); 
+        carry = s / 10;
+        i--; 
+        k--; 
+    } 
+    if(carry){
+        cout<<carry<<", ";
+    }
+	for(k=0; k<n;k++){
+		
+		cout<<sum[k]<<", ";
+	}
+	cout<<"END";
+} 
+
+int main() {
+	int n,m;
+	cin>>n;
+	int arr1[n];
+	for(int i=0; i<n; i++){
+		cin>>arr1[i];
+	}
+	cin>>m;
+	int arr2[m];
+	for(int i=0; i<m; i++){
+		cin>>arr2[i];
+	}
+
+    if (n >= m) 
+        Sumarr(arr1, arr2, n, m); 
+  
+    else
+        Sumarr(arr2, arr1, m, n);
+	return 0;
+}
