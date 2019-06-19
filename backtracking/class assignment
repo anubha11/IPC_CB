@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+int assign(int n,int arr[],int i){
+	if (n==0){
+		return 1;
+	}
+	int small=assign(n-1,arr,i+1){
+
+	}
+
+}
+
+int main() {
+	int tc;
+	cin>>tc;
+	while(tc){
+		int n;
+		cin>>n;
+		int res=assign(int n);
+		cout<<"#"<<n<<" : "<<res<<endl;
+		tc--;
+	}
+	return 0;
+}
